@@ -46,6 +46,7 @@ void search(struct fridge *arr, int n){
  if(!f)
   return;
  int key;
+ int c;
  printf("1-product, 2-exp_date, 3-weight\n");
  scanf("%d", &key);
  switch(key){
@@ -53,34 +54,43 @@ void search(struct fridge *arr, int n){
    char s_prod[40];
    printf("product= ");
    scanf("%s", s_prod);
+   c=0;
    for(int i=0; i<n; i++){
-    if (strcmp(arr[i].prod, s_prod)==0)
+    if (strcmp(arr[i].prod, s_prod)==0){
      printf("%s %d %d\n", arr[i].prod, arr[i].exp_date, arr[i].weight);
-    else
-     printf("no match");
+     c+=1;
+    }
    }
+   if (c==0)
+    printf("no match\n");
    break;
   case 2:
   int s_exp_date;
   printf("expiry date= ");
   scanf("%d", &s_exp_date);
+  c=0;
   for(int i=0; i<n; i++){
-   if((int)arr[i].exp_date==s_exp_date)
+   if(arr[i].exp_date==s_exp_date){
     printf("%s %d %d\n", arr[i].prod, arr[i].exp_date, arr[i].weight);
-   else
-    printf("no match");
+    c+=1;
+   }
   }
+  if (c==0)
+   printf("no match\n");
   break;
   case 3:
   int s_weight;
   printf("weight= ");
   scanf("%d", &s_weight);
+  c=0;
   for(int i=0; i<n; i++){
-   if((int)arr[i].weight==s_weight)
+   if(arr[i].weight==s_weight){
     printf("%s %d %d\n", arr[i].prod, arr[i].exp_date, arr[i].weight);
-   else
-    printf("no match");
+    c+=1;
+   }
   }
+  if (c==0)
+   printf("no match\n");
   break;
   default:
    break;

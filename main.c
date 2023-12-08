@@ -28,6 +28,7 @@ int main(){
    break;
    case 4:
     search(arr, n);
+   break;
    default:
     stop=1;
     break;

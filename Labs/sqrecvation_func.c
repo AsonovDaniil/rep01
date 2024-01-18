@@ -17,6 +17,8 @@ int main(){
  d=b*b-4*a*c;
  if (d<0)
   printf("нет решений");
+ if (a+b+c==0)
+  printf("нет решений");
  else{
   func(a, b, c, d, &x1, &x2);
   if (x1!=x2)
